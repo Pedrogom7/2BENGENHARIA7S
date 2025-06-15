@@ -1,10 +1,10 @@
 package Pedro.trabalho.Controllers;
 
-import Pedro.trabalho.Domain.User.AuthenticationDTO;
-import Pedro.trabalho.Domain.User.LoginResponseDTO;
-import Pedro.trabalho.Domain.User.RegisterDTO;
-import Pedro.trabalho.Domain.User.User;
-import Pedro.trabalho.Infra.Security.TokenService;
+import Pedro.trabalho.User.AuthenticationDTO;
+import Pedro.trabalho.User.LoginResponseDTO;
+import Pedro.trabalho.User.RegisterDTO;
+import Pedro.trabalho.User.User;
+import Pedro.trabalho.Security.TokenService;
 import Pedro.trabalho.Repositories.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("auth")
@@ -42,7 +39,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody @Valid RegisterDTO data){
-        if(this.repository.findByLogin(data.login()) != null)
+        if (this.repository.findByLogin(data.login()) != null)
             return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
