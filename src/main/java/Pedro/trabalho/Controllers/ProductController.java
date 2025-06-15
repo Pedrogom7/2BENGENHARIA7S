@@ -1,8 +1,8 @@
 package Pedro.trabalho.Controllers;
 
-import Pedro.trabalho.Domain.Product.Product;
-import Pedro.trabalho.Domain.Product.ProductRequestDTO;
-import Pedro.trabalho.Domain.Product.ProductResponseDTO;
+import Pedro.trabalho.Product.Product;
+import Pedro.trabalho.Product.ProductRequestDTO;
+import Pedro.trabalho.Product.ProductResponseDTO;
 import Pedro.trabalho.Repositories.ProductRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
