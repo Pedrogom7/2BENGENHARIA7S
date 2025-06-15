@@ -1,6 +1,7 @@
 package Pedro.trabalho.Product;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Table(name = "product")
